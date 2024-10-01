@@ -38,4 +38,8 @@ describe tb_user;
 
 alter table tb_user change id id int not null primary KEY;
 
-describe tb_user;
+insert into tb_user (id, nome_user, sexo, data_cadastro, endereco, estado, valor) values 
+(1, 'Daniel Simonian', 'M', '2024-10-01', 'Rua Humberto de Campos, 22, apto. 22', 'SP', '570'),
+(2, 'Marcella Lima', 'F', '2024-10-01', 'Rua Humberto de Campos, 22, apto. 22', 'SP', '1300');
+
+select * from tb_user;
