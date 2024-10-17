@@ -54,3 +54,7 @@ create table tb_venda (
     foreign key (id_carro) references tb_carro(id),
     pagamento varchar(30) not null
 );
+select * from tb_cliente;
+describe tb_pessoa;
+
+select * from tb_pessoa left join tb_carro on (tb
