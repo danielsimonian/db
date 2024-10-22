@@ -416,4 +416,228 @@ select tb_pessoa.nome, tb_funcionario.id_funcionario from tb_pessoa inner join t
 select nome, cargo from tb_pessoa join tb_funcionario on (tb_funcionario.id_pessoa = tb_pessoa.id_pessoa) join tb_cargo on (tb_cargo.id_cargo = tb_funcionario.id_funcionario)
 where cargo = 'Gerente'; -- quem é o gerente?
 
+create table tb_carro (
+	id_carro int not null primary key,
+    modelo varchar(50) not null,
+    cor varchar(20) not null,
+    ano date not null,
+    placa varchar(7),
+    chassi varchar(17),
+    preco float(8,2)
+);
 
+create table tb_marca (
+	id_marca int not null primary key,
+    marca varchar(50) not null,
+    id_carro int not null,
+    foreign key (id_carro) references tb_carro(id_carro)
+);
+
+INSERT INTO tb_carro (id_carro, modelo, cor, ano, placa, chassi, preco) VALUES
+(1, 'Corolla', 'Preto', '2020-01-01', 'ABC1A23', '1NXBR32E54Z123456', 79990.00),
+(2, 'Hilux', 'Branco', '2021-01-01', 'ABC1B34', '2T1BR32E54Z123457', 189990.00),
+(3, 'Fiesta', 'Vermelho', '2019-01-01', 'ABC1C45', '3FADP4BJ9EM123458', 59990.00),
+(4, 'Mustang', 'Azul', '2020-01-01', 'ABC1D56', '1FA6P8TH1JZ123459', 349990.00),
+(5, 'Onix', 'Prata', '2021-01-01', 'ABC1E67', '1G1BC5SM7JZ123460', 49990.00),
+(6, 'Tracker', 'Preto', '2018-01-01', 'ABC1F78', 'KL7CJKSB9MB123461', 89990.00),
+(7, 'Civic', 'Cinza', '2020-01-01', 'ABC1G89', '19XFC2F59GE123462', 129990.00),
+(8, 'HR-V', 'Branco', '2019-01-01', 'ABC1H90', '2HKRU4H45JH123463', 109990.00),
+(9, 'Gol', 'Vermelho', '2021-01-01', 'ABC1I01', '9BWAK7JZ6GP123464', 59990.00),
+(10, 'Tiguan', 'Prata', '2020-01-01', 'ABC1J12', 'WVGCV7AX8JW123465', 179990.00),
+(11, 'Kicks', 'Azul', '2019-01-01', 'ABC1K23', 'JN1BJ1AR8JW123466', 84990.00),
+(12, 'Sentra', 'Preto', '2021-01-01', 'ABC1L34', '3N1AB7AP9EY123467', 109990.00),
+(13, 'X3', 'Branco', '2020-01-01', 'ABC1M45', '5UXWX7C57B0L123468', 289990.00),
+(14, 'M3', 'Vermelho', '2019-01-01', 'ABC1N56', 'WBS8M9C59JX123469', 499990.00),
+(15, 'C-Class', 'Cinza', '2020-01-01', 'ABC1O67', 'WDDGF8AB1JF123470', 199990.00),
+(16, 'GLA', 'Preto', '2021-01-01', 'ABC1P78', 'WDCTG4FB2JW123471', 239990.00),
+(17, 'Elantra', 'Branco', '2019-01-01', 'ABC1Q89', 'KMHDH4AE8JU123472', 79990.00),
+(18, 'Tucson', 'Prata', '2020-01-01', 'ABC1R90', '5NMS2CAD5FH123473', 159990.00),
+(19, 'Seltos', 'Azul', '2021-01-01', 'ABC1S01', 'KNDPM3AC5JU123474', 109990.00),
+(20, 'Sportage', 'Vermelho', '2019-01-01', 'ABC1T12', 'KNDJP3A2XJU123475', 139990.00),
+(21, 'A3', 'Preto', '2020-01-01', 'ABC1U23', 'WAUDF78E65A123476', 169990.00),
+(22, 'Impreza', 'Branco', '2019-01-01', 'ABC1V34', 'JF1GJAA67B123477', 75990.00),
+(23, 'Mazda3', 'Vermelho', '2021-01-01', 'ABC1W45', 'JM1GL1U59J123478', 109990.00),
+(24, 'Punto', 'Cinza', '2020-01-01', 'ABC1X56', 'ZFA19900002123479', 59990.00),
+(25, 'NX', 'Preto', '2019-01-01', 'ABC1Y67', 'JTJYAAZUXD123480', 199990.00),
+(26, 'Evoque', 'Branco', '2021-01-01', 'ABC1Z78', 'SALVA2BG4BH123481', 339990.00),
+(27, 'Cayenne', 'Vermelho', '2020-01-01', 'ABC2A89', 'WP1AA29P2FL123482', 489990.00),
+(28, 'F-Pace', 'Azul', '2019-01-01', 'ABC2B90', 'SADCK2C4XHA123483', 339990.00),
+(29, '300C', 'Prata', '2020-01-01', 'ABC2C01', '2C3CCACG4FH123484', 229990.00),
+(30, 'Challenger', 'Vermelho', '2021-01-01', 'ABC2D12', '2C3CDXBG7GH123485', 299990.00),
+(31, 'RAV4', 'Preto', '2020-01-01', 'ABC2E23', 'JTMDJ3FV3K123486', 179990.00),
+(32, 'Explorer', 'Branco', '2019-01-01', 'ABC2F34', '1FM5K8B89JGA123487', 199990.00),
+(33, 'Camaro', 'Vermelho', '2021-01-01', 'ABC2G45', '1G1FG1R71H0123488', 329990.00),
+(34, 'Fit', 'Cinza', '2020-01-01', 'ABC2H56', 'JHMGE8H55KC123489', 64990.00),
+(35, 'Nivus', 'Branco', '2021-01-01', 'ABC2I67', 'WVWZZZ1JZHZ123490', 99990.00),
+(36, 'Altima', 'Preto', '2019-01-01', 'ABC2J78', '1N4AL3AP2EC123491', 84990.00),
+(37, 'Z4', 'Vermelho', '2020-01-01', 'ABC2K89', '4USBT53486L123492', 299990.00),
+(38, 'GLC', 'Azul', '2021-01-01', 'ABC2L90', 'WDC0G4JB3JX123493', 249990.00),
+(39, 'I30', 'Prata', '2019-01-01', 'ABC2M01', 'KMHDB41BBKU123494', 79990.00),
+(40, 'Picanto', 'Vermelho', '2020-01-01', 'ABC2N12', 'KNAFK5A27B123495', 39990.00),
+(41, 'Q5', 'Preto', '2021-01-01', 'ABC2O23', 'WA1C2AFY0GA123496', 239990.00),
+(42, 'Crosstrek', 'Branco', '2020-01-01', 'ABC2P34', 'JF2GT6D66H123497', 84990.00),
+(43, 'MX-5', 'Vermelho', '2019-01-01', 'ABC2Q45', 'JM1ND2J18M123498', 139990.00),
+(44, 'Argo', 'Cinza', '2021-01-01', 'ABC2R56', 'ZFA19900002123499', 59990.00),
+(45, 'RX', 'Preto', '2020-01-01', 'ABC2S67', 'JTJYAAZUXD123500', 299990.00),
+(46, 'E-Pace', 'Branco', '2019-01-01', 'ABC2T78', 'SADCK2C4XHA123501', 249990.00),
+(47, '911', 'Vermelho', '2020-01-01', 'ABC2U89', 'WP0CA29907S123502', 649990.00),
+(48, 'X5', 'Azul', '2021-01-01', 'ABC2V90', '5UXKR2C57B0L123503', 349990.00),
+(49, 'Civic Si', 'Prata', '2019-01-01', 'ABC2W01', '19XFC2F59GE123504', 199990.00),
+(50, 'Sonic', 'Vermelho', '2020-01-01', 'ABC2X12', '1G1JC5SH3E0123495', 49990.00),
+(51, 'Santa Fe', 'Preto', '2021-01-01', 'ABC2Y23', '5NMS2CAD5FH123505', 159990.00),
+(52, 'Focus', 'Branco', '2020-01-01', 'ABC2Z34', '1FTRX12W56KC123506', 99990.00),
+(53, 'Cruze', 'Vermelho', '2021-01-01', 'ABC3A45', '1G1BC5SM7JZ123507', 89990.00),
+(54, 'Civic Type R', 'Cinza', '2020-01-01', 'ABC3B56', '19XFC2F59GE123508', 299990.00),
+(55, 'Polo', 'Preto', '2019-01-01', 'ABC3C67', 'WVWZZZ1JZHZ123509', 79990.00),
+(56, 'Versa', 'Branco', '2021-01-01', 'ABC3D78', '1N4AL3AP2EC123510', 84990.00),
+(57, 'i3', 'Vermelho', '2020-01-01', 'ABC3E89', 'WBY1Z4C54EV123511', 149990.00),
+(58, 'A-Class', 'Azul', '2019-01-01', 'ABC3F90', 'WDDGF8AB1JF123512', 239990.00),
+(59, 'Sonata', 'Prata', '2021-01-01', 'ABC3G01', '5NMS2CAD5FH123513', 99990.00),
+(60, 'Forte', 'Vermelho', '2020-01-01', 'ABC3H12', 'KNDPM3AC5JU123514', 79990.00),
+(61, 'Q3', 'Preto', '2019-01-01', 'ABC3I23', 'WA1EFCFY0GA123515', 199990.00),
+(62, 'Legacy', 'Branco', '2021-01-01', 'ABC3J34', 'JF2GT6D66H123516', 159990.00),
+(63, 'CX-5', 'Vermelho', '2020-01-01', 'ABC3K45', 'JM3KE2D76L123517', 109990.00),
+(64, 'Argo', 'Cinza', '2021-01-01', 'ABC3L56', 'ZFA19900002123419', 59990.00),
+(65, 'ES', 'Preto', '2020-01-01', 'ABC3M67', 'JTJYAAZUXD123520', 249990.00),
+(66, 'Freelander', 'Branco', '2019-01-01', 'ABC3N78', 'SALLAAAW7H123521', 199990.00),
+(67, 'Taycan', 'Vermelho', '2021-01-01', 'ABC3O89', 'WP1AA29P2FL123522', 489990.00),
+(68, 'F-Type', 'Azul', '2020-01-01', 'ABC3P90', 'SAJAA05N5H123523', 349990.00),
+(69, 'Voyager', 'Prata', '2019-01-01', 'ABC3Q01', '2C3CDXBG7GH123524', 199990.00),
+(70, 'Journey', 'Vermelho', '2021-01-01', 'ABC3R12', '1C4RDJEG7JC123525', 159990.00),
+(71, 'RAV4', 'Preto', '2020-01-01', 'ABC3S23', 'JTMDJ3FV3K123526', 179990.00),
+(72, 'Fiesta ST', 'Branco', '2021-01-01', 'ABC3T34', '1FADP3F25JL123527', 69990.00),
+(73, 'Sonic RS', 'Vermelho', '2020-01-01', 'ABC3U45', '1G1JC5SH3E0123498', 79990.00),
+(74, 'Pilot', 'Cinza', '2021-01-01', 'ABC3V56', '5J6RW2H69JL123529', 149990.00),
+(75, 'ID.4', 'Preto', '2020-01-01', 'ABC3W67', 'WVWZZZ1JZHZ123530', 199990.00),
+(76, 'Murano', 'Branco', '2019-01-01', 'ABC3X78', '5N1AZ2MG7KC123531', 179990.00),
+(77, 'X1', 'Vermelho', '2020-01-01', 'ABC3Y89', '5UXWX7C57B0L123532', 249990.00),
+(78, 'GLA 250', 'Azul', '2021-01-01', 'ABC3Z90', 'WDCTG4FB2JW123533', 229990.00),
+(79, 'Veloster', 'Prata', '2019-01-01', 'ABC4A01', 'KMHDB41BBKU123534', 99990.00),
+(80, 'Soul', 'Vermelho', '2020-01-01', 'ABC4B12', 'KNDPM3AC5JU123535', 64990.00),
+(81, 'A4', 'Preto', '2021-01-01', 'ABC4C23', 'WAUDF78E65A123536', 199990.00),
+(82, 'Outback', 'Branco', '2020-01-01', 'ABC4D34', 'JF1GJAA67B123537', 159990.00),
+(83, 'CX-30', 'Vermelho', '2019-01-01', 'ABC4E45', 'JM1GL1U59J123538', 89990.00),
+(84, 'Panda', 'Cinza', '2021-01-01', 'ABC4F56', 'ZFA19900002123439', 59990.00),
+(85, 'GX', 'Preto', '2020-01-01', 'ABC4G67', 'JTJYAAZUXD123540', 299990.00),
+(86, 'Range Rover', 'Branco', '2019-01-01', 'ABC4H78', 'SALLAAAW7H123541', 439990.00),
+(87, 'Panamera', 'Vermelho', '2021-01-01', 'ABC4I89', 'WP1AA29P2FL123542', 639990.00),
+(88, 'XF', 'Azul', '2020-01-01', 'ABC4J90', 'SAJAA05N5H123543', 299990.00),
+(89, 'Pacifica', 'Prata', '2019-01-01', 'ABC4K01', '2C3CDXBG7GH123544', 249990.00),
+(90, 'Challenger GT', 'Vermelho', '2021-01-01', 'ABC4L12', '2C3CDXBG7GH123545', 299990.00),
+(91, 'C-HR', 'Preto', '2020-01-01', 'ABC4M23', 'JTDKHHRB9J123546', 139990.00),
+(92, 'EcoSport', 'Branco', '2021-01-01', 'ABC4N34', '1FMCU0F78JEA123547', 74990.00),
+(93, 'Bolt EV', 'Vermelho', '2020-01-01', 'ABC4O45', '1G1FJ5R61H0123499', 89990.00),
+(94, 'CR-V', 'Cinza', '2021-01-01', 'ABC4P56', '5J6RW2H69JL123548', 199990.00),
+(95, 'Rogue', 'Preto', '2020-01-01', 'ABC4Q67', 'JN1BJ1AR8JW123549', 159990.00),
+(96, 'Sonata Hybrid', 'Branco', '2019-01-01', 'ABC4R78', '5NMS2CAD5FH123550', 89990.00),
+(97, 'Q8', 'Vermelho', '2021-01-01', 'ABC4S89', 'WA1F2AFY0GA123551', 289990.00),
+(98, 'Explorer Sport', 'Azul', '2020-01-01', 'ABC4T90', '1FM5K8B89JGA123552', 249990.00),
+(99, 'Altima SR', 'Prata', '2019-01-01', 'ABC4U01', '1N4AL3AP2EC123553', 139990.00),
+(100, 'Sentra SR', 'Vermelho', '2021-01-01', 'ABC4V12', '3N1AB7AP9EY123554', 99990.00);
+
+INSERT INTO tb_marca (id_marca, marca, id_carro) VALUES
+(1, 'Toyota', 1),
+(2, 'Ford', 4),
+(3, 'Chevrolet', 5),
+(4, 'Honda', 7),
+(5, 'Volkswagen', 10),
+(6, 'Nissan', 11),
+(7, 'BMW', 13),
+(8, 'Mercedes-Benz', 15),
+(9, 'Hyundai', 17),
+(10, 'Kia', 19),
+(11, 'Audi', 21),
+(12, 'Subaru', 23),
+(13, 'Mazda', 25),
+(14, 'Fiat', 27),
+(15, 'Lexus', 29),
+(16, 'Land Rover', 31),
+(17, 'Porsche', 33),
+(18, 'Jaguar', 35),
+(19, 'Chrysler', 37),
+(20, 'Dodge', 39);
+
+select * from tb_carro where ano = '2020-01-01';
+select tb_pessoa.nome, tb_telefone.telefone from tb_pessoa inner join tb_telefone on (tb_pessoa.id_pessoa = tb_telefone.id_pessoa);
+
+drop table tb_venda;
+
+create table tb_venda (
+	id_venda int not null primary key,
+    id_funcionario int not null,
+    foreign key (id_funcionario) references tb_funcionario(id_funcionario),
+    id_cliente int not null,
+    foreign key (id_cliente) references tb_cliente(id_cliente),
+    id_carro int not null,
+    foreign key (id_carro) references tb_carro(id_carro),
+    dia_hora date not null
+);
+
+INSERT INTO tb_venda (id_venda, id_funcionario, id_cliente, id_carro, dia_hora) VALUES
+(1, 2, 1, 3, '2024-01-15 10:30:00'),
+(2, 2, 2, 15, '2024-01-16 11:15:00'),
+(3, 2, 3, 28, '2024-01-17 14:45:00'),
+(4, 2, 4, 7, '2024-01-18 09:00:00'),
+(5, 2, 5, 20, '2024-01-19 16:30:00'),
+(6, 2, 6, 35, '2024-01-20 13:15:00'),
+(7, 2, 7, 42, '2024-01-21 08:00:00'),
+(8, 2, 8, 51, '2024-01-22 12:30:00'),
+(9, 2, 9, 70, '2024-01-23 15:00:00'),
+(10, 2, 10, 88, '2024-01-24 14:00:00'),
+(11, 2, 11, 11, '2024-01-25 11:45:00'),
+(12, 2, 12, 29, '2024-01-26 10:15:00'),
+(13, 2, 13, 57, '2024-01-27 09:30:00'),
+(14, 2, 14, 92, '2024-01-28 13:50:00'),
+(15, 2, 15, 5, '2024-01-29 16:20:00'),
+(16, 2, 1, 17, '2024-01-30 10:10:00'),
+(17, 2, 2, 30, '2024-01-31 11:35:00'),
+(18, 2, 3, 43, '2024-02-01 15:05:00'),
+(19, 2, 4, 68, '2024-02-02 09:40:00'),
+(20, 2, 5, 78, '2024-02-03 14:55:00');
+
+
+
+select * from tb_carro;
+select * from tb_pessoa;
+select * from tb_cliente;
+select * from tb_venda;
+describe tb_funcionario;
+
+SELECT cliente.nome, carro.modelo
+FROM cliente
+JOIN carro ON cliente.id_cliente = carro.id_cliente;
+
+select nome, cargo from tb_pessoa join tb_funcionario on (tb_funcionario.id_pessoa = tb_pessoa.id_pessoa) join tb_cargo on (tb_cargo.id_cargo = tb_funcionario.id_funcionario)
+where cargo = 'Gerente';
+
+select * from tb_venda;
+
+
+SELECT -- vendedor e modelo
+    tb_carro.modelo,
+    tb_pessoa.nome AS nome_vendedor
+FROM 
+    tb_venda
+JOIN 
+    tb_carro ON tb_venda.id_carro = tb_carro.id_carro
+JOIN 
+    tb_funcionario ON tb_venda.id_funcionario = tb_funcionario.id_funcionario
+JOIN 
+    tb_pessoa ON tb_funcionario.id_pessoa = tb_pessoa.id_pessoa
+JOIN 
+    tb_cargo ON tb_funcionario.id_funcionario = tb_cargo.id_funcionario
+WHERE 
+    tb_cargo.cargo = 'Vendedor';
+    
+
+SELECT -- cliente e modelo
+    tb_carro.modelo,
+    tb_pessoa.nome AS nome_cliente
+FROM 
+    tb_venda
+JOIN 
+    tb_carro ON tb_venda.id_carro = tb_carro.id_carro
+JOIN 
+    tb_cliente ON tb_venda.id_cliente = tb_cliente.id_cliente
+JOIN 
+    tb_pessoa ON tb_cliente.id_pessoa = tb_pessoa.id_pessoa;
